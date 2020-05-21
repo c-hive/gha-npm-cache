@@ -17,7 +17,7 @@ async function run() {
     },
   };
 
-  await exec.exec("uname", options);
+  await exec.exec("uname", [], options);
 
   // eslint-disable-next-line no-console
   console.log(output);
