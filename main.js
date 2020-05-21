@@ -19,7 +19,7 @@ async function run() {
   const cachePaths = ["node_modules"];
   const primaryKey = `${os.trim()}-npm-cache-${hash}`;
   const restoreKeys = [`${os.trim()}-npm-cache-`];
-  core.saveState("CACHE_KEY", primaryKey);
+  core.saveState("NPM_CACHE_KEY", primaryKey);
 
   const cacheKey = await cache.restoreCache(
     cachePaths,
@@ -36,7 +36,7 @@ async function run() {
     return;
   }
 
-  core.saveState("CACHE_RESULT", cacheKey);
+  core.saveState("NPM_CACHE_RESULT", cacheKey);
   const isExactKeyMatch = primaryKey === cacheKey;
   core.setOutput("cache-hit", isExactKeyMatch.toString());
 

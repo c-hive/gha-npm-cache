@@ -2,8 +2,8 @@ const core = require("@actions/core");
 const cache = require("@actions/cache");
 
 async function run() {
-  const cacheKey = core.getState("CACHE_RESULT");
-  const primaryKey = core.getState("CACHE_KEY");
+  const cacheKey = core.getState("NPM_CACHE_RESULT");
+  const primaryKey = core.getState("NPM_CACHE_KEY");
 
   if (cacheKey === primaryKey) {
     core.info(
