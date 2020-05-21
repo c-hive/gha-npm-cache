@@ -3,26 +3,45 @@ const exec = require("@actions/exec");
 const md5File = require("md5-file");
 const cache = require("@actions/cache");
 
-async function run() {
-  let os = "";
-
+async function uname() {
+  let output = "";
   const options = {};
   options.listeners = {
     stdout: data => {
-      os += data.toString();
+      output += data.toString();
     },
   };
-
   await exec.exec("uname", [], options);
+
+  return output.trim();
+}
+
+async function npmCache() {
+  let output = "";
+  const options = {};
+  options.listeners = {
+    stdout: data => {
+      output += data.toString();
+    },
+  };
+  await exec.exec("npm config get cache", [], options);
+
+  return output.trim();
+}
+
+async function run() {
+  const os = uname();
+  const cachePath = npmCache();
+  core.saveState("NPM_CACHE_PATH", cachePath);
+
   const hash = md5File.sync("package-lock.json");
 
-  const cachePaths = ["~/.npm"];
   const primaryKey = `${os.trim()}-npm-cache-${hash}`;
   const restoreKeys = [`${os.trim()}-npm-cache-`];
   core.saveState("NPM_CACHE_KEY", primaryKey);
 
   const cacheKey = await cache.restoreCache(
-    cachePaths,
+    [cachePath],
     primaryKey,
     restoreKeys
   );
