@@ -18,8 +18,8 @@ async function run() {
   const hash = md5File.sync("package-lock.json");
 
   const cachePaths = ["node_modules"];
-  const primaryKey = `${os}-npm-cache-${hash}`;
-  const restoreKeys = [`${os}-npm-cache-`];
+  const primaryKey = `${os.trim()}-npm-cache-${hash}`;
+  const restoreKeys = [`${os.trim()}-npm-cache-`];
   core.saveState("CACHE_KEY", primaryKey);
 
   const cacheKey = await cache.restoreCache(
