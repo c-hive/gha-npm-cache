@@ -1,6 +1,6 @@
 {
   "name": "gha-npm-cache",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "1-liner npm install cache for GitHub Actions",
   "scripts": {
     "build": "ncc build src/save.js --out dist/save --minify && ncc build src/restore.js --out dist/restore --minify",
