@@ -37,7 +37,7 @@ async function run() {
   const hash = md5File.sync("package-lock.json");
 
   const primaryKey = `${os}-npm-cache-${hash}`;
-  const restoreKey = [`${os}-npm-cache-`];
+  const restoreKey = `${os}-npm-cache-`;
   core.saveState("NPM_CACHE_KEY", primaryKey);
   core.info(`Cache keys: ${[primaryKey, restoreKey].join(", ")}`);
 
