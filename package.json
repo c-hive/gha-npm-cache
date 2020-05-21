@@ -2,8 +2,9 @@
   "name": "gha-npm-cache",
   "version": "0.1.0",
   "description": "",
-  "main": "",
+  "main": "dist/main.js",
   "scripts": {
+    "build": "ncc build src/save.js --out dist/save --minify && ncc build src/restore.js --out dist/restore --minify",
     "test": "echo 'No test framework configured'",
     "lint": "eslint . --no-error-on-unmatched-pattern",
     "lint:fix": "eslint . --no-error-on-unmatched-pattern --fix"
@@ -14,13 +15,14 @@
   ],
   "files": [],
   "keywords": [],
-  "author": "",
+  "author": "c-hive",
   "license": "MIT",
   "//dependencies": {},
   "dependencies": {
     "@actions/cache": "^0.2.1",
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
+    "@zeit/ncc": "^0.22.2",
     "md5-file": "^5.0.0"
   },
   "//devDependencies": {

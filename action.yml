@@ -3,8 +3,8 @@ author: 'c-hive'
 description: ''
 runs:
   using: 'node12'
-  main: 'main.js'
-  post: 'post.js'
+  main: 'dist/restore'
+  post: 'dist/save'
   post-if: 'success()'
 outputs:
   cache-hit:

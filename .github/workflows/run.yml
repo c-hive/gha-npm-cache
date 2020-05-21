@@ -1,0 +1,23 @@
+name: Run
+
+on: [push]
+
+env:
+  node_version: "12.x"
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.node_version }}
+    - name: Install JS dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Run action
+      uses: ./
