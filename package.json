@@ -21,7 +21,8 @@
     "@actions/cache": "^0.2.1",
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
-    "@actions/github": "^2.2.0"
+    "@actions/github": "^2.2.0",
+    "md5-file": "^5.0.0"
   },
   "//devDependencies": {
     "eslint*": "code style",
