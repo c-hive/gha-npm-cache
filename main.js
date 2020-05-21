@@ -2,7 +2,6 @@ const core = require("@actions/core");
 const exec = require("@actions/exec");
 const md5File = require("md5-file");
 const cache = require("@actions/cache");
-// const github = require("@actions/github");
 
 async function run() {
   let os = "";
@@ -15,7 +14,9 @@ async function run() {
   };
   os = os.trim();
 
-  await exec.exec("uname", [], options);
+  const ret = await exec.exec("uname", [], options);
+  // eslint-disable-next-line no-console
+  console.log(ret);
   const hash = md5File.sync("package-lock.json");
 
   const cachePaths = ["node_modules"];
