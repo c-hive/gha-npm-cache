@@ -12,7 +12,13 @@
     "lint",
     "test"
   ],
-  "keywords": ["github", "action", "npm", "install", "cache"],
+  "keywords": [
+    "github",
+    "action",
+    "npm",
+    "install",
+    "cache"
+  ],
   "author": "c-hive",
   "license": "MIT",
   "//dependencies": {},
