@@ -23,7 +23,7 @@ GitHub Action caches improve build times and reduce network dependencies. Howeve
 ## Usage
 
 Add this step before `npm install`:
-```
+```yml
 uses: c-hive/gha-npm-cache@v1
 ```
 
