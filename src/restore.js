@@ -62,4 +62,6 @@ async function run() {
   core.info(`Cache restored from key: ${cacheKey}`);
 }
 
-run();
+run().catch(err => {
+  core.setFailed(err.toString());
+});

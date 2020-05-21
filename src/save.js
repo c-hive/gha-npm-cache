@@ -16,4 +16,6 @@ async function run() {
   await cache.saveCache([cachePath], primaryKey);
 }
 
-run();
+run().catch(err => {
+  core.setFailed(err.toString());
+});
