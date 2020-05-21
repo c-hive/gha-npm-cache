@@ -5,16 +5,16 @@ const exec = require("@actions/exec");
 
 async function run() {
   let output = "";
-  let error = "";
+  // let error = "";
 
   const options = {};
   options.listeners = {
     stdout: data => {
       output += data.toString();
     },
-    stderr: data => {
-      error += data.toString();
-    },
+    // stderr: data => {
+    //   error += data.toString();
+    // },
   };
 
   await exec.exec("uname", [], options);
@@ -22,9 +22,8 @@ async function run() {
   // eslint-disable-next-line no-console
   console.log(output);
   // eslint-disable-next-line no-console
-  console.log(error);
+  // console.log(error);
 
-  await exec.exec("node", ["index.js", "foo=bar"], options);
   // const cacheKey = await cache.restoreCache(
   //   ["node_modules"],
   //   primaryKey,
