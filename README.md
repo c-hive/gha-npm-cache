@@ -47,6 +47,10 @@ jobs:
       run: npm run test
 ```
 
+## Similar actions
+
+- [gha-yarn-cache](https://github.com/c-hive/gha-yarn-cache)
+
 ## Conventions
 
 This project follows [C-Hive guides](https://github.com/c-hive/guides) for code style, way of working and other development concerns.
