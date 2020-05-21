@@ -12,7 +12,7 @@ async function run() {
     return;
   }
 
-  const cachePaths = ["node_modules"];
+  const cachePaths = ["~/.npm"];
 
   await cache.saveCache(cachePaths, primaryKey);
 }

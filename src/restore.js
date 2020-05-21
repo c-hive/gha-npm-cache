@@ -16,7 +16,7 @@ async function run() {
   await exec.exec("uname", [], options);
   const hash = md5File.sync("package-lock.json");
 
-  const cachePaths = ["node_modules"];
+  const cachePaths = ["~/.npm"];
   const primaryKey = `${os.trim()}-npm-cache-${hash}`;
   const restoreKeys = [`${os.trim()}-npm-cache-`];
   core.saveState("NPM_CACHE_KEY", primaryKey);
