@@ -10,7 +10,7 @@ Status and support
 
 [![CI](/../../workflows/CI/badge.svg?branch=master)](/../../actions)
 
-GitHub Action caches improve build times and reduce network dependencies. However, writing the correct cache logic is [tricky](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---npm). You need to understand how the [cache action](https://github.com/actions/cache) (keys and restore keys) work. You need to know not to cache the `node_modules` folder. This setup is different per OS and takes a lot of space in your workflows. Not anymore!
+GitHub Action caches improve build times and reduce network dependencies. However, writing the correct cache logic is [tricky](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---npm). You need to understand how the [cache action](https://github.com/actions/cache) (keys and restore keys) work. Did you know you're not supposed to cache the `node_modules` folder? This setup is different per OS and takes a lot of space in your workflows. Not anymore!
 
 `gha-npm-cache` is a simple 1-liner that covers all use-cases:
 - Caches the NPM cache directory instead of `node-modules` [as recommended](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---npm)
