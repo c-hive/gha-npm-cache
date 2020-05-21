@@ -1,7 +1,6 @@
 name: 'NPM install cache'
 author: 'c-hive'
 description: '1-liner npm install cache for GitHub Actions'
-icon: 'box'
 runs:
   using: 'node12'
   main: 'dist/restore/index.js'
