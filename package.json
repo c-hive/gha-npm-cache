@@ -2,7 +2,6 @@
   "name": "gha-npm-cache",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/main.js",
   "scripts": {
     "build": "ncc build src/save.js --out dist/save --minify && ncc build src/restore.js --out dist/restore --minify",
     "test": "echo 'No test framework configured'",
