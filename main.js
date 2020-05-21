@@ -14,9 +14,7 @@ async function run() {
   };
   os = os.trim();
 
-  const ret = await exec.exec("uname", [], options);
-  // eslint-disable-next-line no-console
-  console.log(ret);
+  await exec.exec("uname", [], options);
   const hash = md5File.sync("package-lock.json");
 
   const cachePaths = ["node_modules"];
