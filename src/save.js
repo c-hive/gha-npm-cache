@@ -13,7 +13,18 @@ async function run() {
     return;
   }
 
-  await cache.saveCache([cachePath], primaryKey);
+  // https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/src/save.ts#L39-L49
+  try {
+    await cache.saveCache([cachePath], primaryKey);
+  } catch (error) {
+    if (error.name === cache.ValidationError.name) {
+      throw error;
+    } else if (error.name === cache.ReserveCacheError.name) {
+      core.info(error.message);
+    } else {
+      core.info(`[warning] ${error.message}`);
+    }
+  }
 }
 
 run().catch(err => {
