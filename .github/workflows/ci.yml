@@ -51,16 +51,9 @@ jobs:
   run-action:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    # needs: [lint, test]
+    needs: [lint, test]
     steps:
     - uses: actions/checkout@v1
-    - name: Cache node_modules
-      uses: actions/cache@v1
-      with:
-        path: node_modules
-        key: ${{ runner.OS }}-node_modules-${{ hashFiles('**//package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}--
     - name: Install JS dependencies
       run: ls package-lock.json && npm install || yarn install
     - name: Run action
