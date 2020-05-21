@@ -17,16 +17,12 @@ async function run() {
   await exec.exec("uname", [], options);
   const hash = md5File.sync("package-lock.json");
 
-  // eslint-disable-next-line no-console
-  console.log(os);
-  // eslint-disable-next-line no-console
-  console.log(hash);
-
+  const cachePaths = ["node_modules"];
   const primaryKey = `${os}-npm-cache-${hash}`;
   const restoreKeys = [`${os}-npm-cache-`];
 
   const cacheKey = await cache.restoreCache(
-    ["node_modules"],
+    cachePaths,
     primaryKey,
     restoreKeys
   );
