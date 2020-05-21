@@ -21,7 +21,6 @@
     "@actions/cache": "^0.2.1",
     "@actions/core": "^1.2.4",
     "@actions/exec": "^1.0.4",
-    "@zeit/ncc": "^0.22.2",
     "md5-file": "^5.0.0"
   },
   "//devDependencies": {
@@ -30,6 +29,7 @@
     "prettier": "code formatting"
   },
   "devDependencies": {
+    "@zeit/ncc": "^0.22.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^4.2.0",
