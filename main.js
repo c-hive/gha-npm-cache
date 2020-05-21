@@ -12,7 +12,6 @@ async function run() {
       os += data.toString();
     },
   };
-  os = os.trim();
 
   await exec.exec("uname", [], options);
   const hash = md5File.sync("package-lock.json");
