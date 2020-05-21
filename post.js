@@ -1,25 +1,19 @@
-// const core = require("@actions/core");
-const exec = require("@actions/exec");
-const md5File = require("md5-file");
+const core = require("@actions/core");
 const cache = require("@actions/cache");
 // const github = require("@actions/github");
 
 async function run() {
-  let os = "";
+  const cacheKey = core.getState("CACHE_RESULT");
+  const primaryKey = core.getState("CACHE_KEY");
 
-  const options = {};
-  options.listeners = {
-    stdout: data => {
-      os += data.toString();
-    },
-  };
-  os = os.trim();
-
-  await exec.exec("uname", [], options);
-  const hash = md5File.sync("package-lock.json");
+  if (cacheKey === primaryKey) {
+    core.info(
+      `Cache hit occurred on the primary key ${primaryKey}, not saving cache.`
+    );
+    return;
+  }
 
   const cachePaths = ["node_modules"];
-  const primaryKey = `${os}-npm-cache-${hash}`;
 
   await cache.saveCache(cachePaths, primaryKey);
 }

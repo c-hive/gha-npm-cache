@@ -6,3 +6,6 @@ runs:
   main: 'main.js'
   post: 'post.js'
   post-if: 'success()'
+outputs:
+  cache-hit:
+    description: 'A boolean value to indicate an exact match was found for the primary key'
