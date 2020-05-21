@@ -2,8 +2,6 @@
 
 #### 1-liner npm install cache for GitHub Actions
 
-_Did you know you're not supposed to cache the `node_modules` folder?_
-
 Status and support
 
 - &#x2714; stable
