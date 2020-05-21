@@ -1,6 +1,5 @@
 const core = require("@actions/core");
 const cache = require("@actions/cache");
-// const github = require("@actions/github");
 
 async function run() {
   const cacheKey = core.getState("CACHE_RESULT");
