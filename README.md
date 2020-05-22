@@ -22,7 +22,7 @@ GitHub Action caches improve build times and reduce network dependencies. Howeve
 
 Add this step before `npm install`:
 ```yml
-uses: c-hive/gha-npm-cache@v1
+- uses: c-hive/gha-npm-cache@v1
 ```
 
 For example:
@@ -45,6 +45,27 @@ jobs:
       run: npm install
     - name: Test
       run: npm run test
+```
+
+### Solution comparison
+
+[Native](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---npm)
+```yml
+- name: Get npm cache directory
+  id: npm-cache
+  run: |
+    echo "::set-output name=dir::$(npm config get cache)"
+- uses: actions/cache@v1
+  with:
+    path: ${{ steps.npm-cache.outputs.dir }}
+    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    restore-keys: |
+      ${{ runner.os }}-node-
+```
+
+`gha-npm-cache`
+```yml
+- uses: c-hive/gha-npm-cache@v1
 ```
 
 ## Similar actions
