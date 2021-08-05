@@ -40,6 +40,8 @@ jobs:
     - uses: actions/checkout@v1
 
     - uses: c-hive/gha-npm-cache@v1
+      # with:
+        # directory: server # Optional, speficy the folder of package-lock.json if not in the root directory
 
     - name: Install JS dependencies
       run: npm install

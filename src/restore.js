@@ -34,7 +34,8 @@ async function run() {
   const cachePath = await npmCache();
   core.saveState("NPM_CACHE_PATH", cachePath);
 
-  const hash = md5File.sync("package-lock.json");
+  const directory = core.getInput("directory");
+  const hash = md5File.sync(`${directory}/package-lock.json`);
 
   const primaryKey = `${os}-npm-cache-${hash}`;
   const restoreKey = `${os}-npm-cache-`;
