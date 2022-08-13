@@ -1,6 +1,6 @@
 ## Deprecated
 
-This functionality is now better supported by [`actions/setup-node`](https://github.com/actions/setup-node):
+This functionality is now part of [`actions/setup-node`](https://github.com/actions/setup-node):
 
 ```yml
 - name: Setup Node.js
