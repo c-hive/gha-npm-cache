@@ -1,3 +1,17 @@
+## Deprecated
+
+This functionality is now better supported by [`actions/setup-node`](https://github.com/actions/setup-node):
+
+```yml
+- name: Setup Node.js
+  uses: actions/setup-node@v3
+  with:
+    node-version: '16'
+    cache: 'npm'
+```
+
+---
+
 # gha-npm-cache
 
 #### 1-liner npm install cache for GitHub Actions
@@ -5,7 +19,7 @@
 Status and support
 
 - &#x2714; stable
-- &#x2714; supported
+- &#x2716; not supported
 - &#x2716; no ongoing development
 
 [![CI](/../../workflows/CI/badge.svg?branch=master)](/../../actions)
